@@ -23,12 +23,12 @@ final class Spammer {
         print("Welcome to the Spammer, created by Noy!");
         print("Type either: Start/Stop!");
         String startOrStop = scanner.nextLine();
-        final SpamHandler spammer;
+        final SpamHandlerInt spammer;
         if (startOrStop.contains("start")) {
             try {
                 print("Type the message you want to spam!");
                 String message = scanner.nextLine();
-                spammer = new SpamHandler(message);
+                spammer = new SpamHandlerInt(message);
                 print("Type the amount of times you want this to spam!");
                 final Integer times = scanner.nextInt();
                 print("You have chosen " + times + " for the spammer to spam! 5 seconds until it starts!");
@@ -46,7 +46,7 @@ final class Spammer {
                 SCHEDULED_EXECUTOR_SERVICE.schedule(runnable, 5L, TimeUnit.SECONDS);
             } catch (Exception e) { print("Not a recognised character!"); }
         } else if (startOrStop.contains("stop")) {
-            spammer = new SpamHandler(null);
+            spammer = new SpamHandlerInt(null);
             spammer.stop();
         }
     }

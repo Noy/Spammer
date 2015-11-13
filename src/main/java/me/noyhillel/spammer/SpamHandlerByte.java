@@ -4,21 +4,22 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 /**
- * <p/>
- * Latest Change: 23/07/2014.
- * <p/>
- *
- * @author Noy
- * @since 14/07/2014.
+ * Created by Noy on 11/13/2015.
  */
-final class SpamHandler implements SpamDelegate<Integer> {
+final class SpamHandlerByte implements SpamDelegate<Byte> {
 
     private final String message;
 
-    SpamHandler(String message) { this.message = message; }
+    /**
+     * The reason for this class is because some people can't be trusted. The Primitive data type 'Byte' limits them to 127 times they can spam.
+     * Believe me, it makes a difference...
+     * @param message ignored
+     */
+
+    SpamHandlerByte(String message) { this.message = message; }
 
     @Override
-    public void start(Integer amount) throws InterruptedException, AWTException {
+    public void start(Byte amount) throws InterruptedException, AWTException {
         Robot robot = new Robot();
         char[] chars = message.toCharArray();
         for (int x = 0; x < amount; x++) {
